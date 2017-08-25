@@ -19,6 +19,7 @@
     "typescript.format.insertSpaceBeforeFunctionParenthesis": true,
     "typescript.format.insertSpaceAfterConstructor": true,
     "typescript.validate.enable": true,
-    "jshint.enable": true,
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "tslint.enable": true,
+    "tslint.autoFixOnSave": true
 }
