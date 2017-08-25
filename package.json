@@ -4,11 +4,13 @@
   "description": "Webpack tests",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha -r ts-node/register test/**/*.spec.ts"
   },
   "author": "George Theofilis",
   "license": "ISC",
   "devDependencies": {
+    "@types/chai": "^4.0.4",
+    "@types/mocha": "^2.2.42",
     "@types/node": "^8.0.24",
     "@types/webpack": "^3.0.10",
     "awesome-typescript-loader": "^3.2.3",
@@ -17,6 +19,8 @@
     "babel-loader": "^7.1.2",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0",
     "npm-install-webpack-plugin": "^4.0.5",
     "ts-node": "^3.3.0",
     "tslint": "^5.6.0",

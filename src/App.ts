@@ -1,3 +1,7 @@
-const a = () => {
-  const temp = 0;
+export const hello = () => {
+  return 'Hello World!';
+};
+
+export default {
+  hello
 };
