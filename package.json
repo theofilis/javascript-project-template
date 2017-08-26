@@ -4,13 +4,14 @@
   "description": "Webpack tests",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -r ts-node/register test/library/**/*.spec.ts",
-    "test-web": "./node_modules/.bin/mocha-casperjs $(find test/ui -name '*.js')"
+    "build": "./node_modules/.bin/webpack",
+    "test": "npm run test-library && npm run test-web",
+    "test-web": "./node_modules/.bin/mocha-casperjs $(find test/ui -name '*.js')",
+    "test-library": "./node_modules/.bin/mocha -r ts-node/register test/library/**/*.spec.ts"
   },
   "author": "George Theofilis",
   "license": "ISC",
   "devDependencies": {
-    "@types/casperjs": "^1.0.31",
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.42",
     "@types/node": "^8.0.24",
