@@ -1,4 +1,4 @@
-import { hello } from '../src/App';
+import { hello } from '../../src/App';
 
 import { expect } from 'chai';
 

@@ -4,11 +4,13 @@
   "description": "Webpack tests",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha -r ts-node/register test/**/*.spec.ts"
+    "test": "./node_modules/.bin/mocha -r ts-node/register test/library/**/*.spec.ts",
+    "test-web": "./node_modules/.bin/mocha-casperjs $(find test/ui -name '*.js')"
   },
   "author": "George Theofilis",
   "license": "ISC",
   "devDependencies": {
+    "@types/casperjs": "^1.0.31",
     "@types/chai": "^4.0.4",
     "@types/mocha": "^2.2.42",
     "@types/node": "^8.0.24",
@@ -19,9 +21,13 @@
     "babel-loader": "^7.1.2",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.0",
+    "casper-chai": "^0.3.0",
+    "casperjs": "^1.1.4",
     "chai": "^4.1.1",
     "mocha": "^3.5.0",
+    "mocha-casperjs": "^0.6.0",
     "npm-install-webpack-plugin": "^4.0.5",
+    "phantomjs": "^2.1.7",
     "ts-node": "^3.3.0",
     "tslint": "^5.6.0",
     "tslint-config-standard": "^6.0.1",
