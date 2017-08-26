@@ -5,7 +5,9 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/node_modules/": true
+        "**/node_modules/": true,
+        ".nyc_output": true,
+        ".awcache": true
     },
     "typescript.format.enable": true,
     "javascript.format.enable": true,

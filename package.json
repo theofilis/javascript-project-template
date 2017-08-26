@@ -7,7 +7,26 @@
     "build": "./node_modules/.bin/webpack",
     "test": "npm run test-library && npm run test-web",
     "test-web": "./node_modules/.bin/mocha-casperjs $(find test/ui -name '*.js')",
-    "test-library": "./node_modules/.bin/mocha -r ts-node/register test/library/**/*.spec.ts"
+    "test-library": "./node_modules/.bin/nyc ./node_modules/.bin/mocha -r ts-node/register test/library/**/*.spec.ts"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts",
+      "src/**/*.tsx"
+    ],
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ],
+    "sourceMap": true,
+    "instrument": true
   },
   "author": "George Theofilis",
   "license": "ISC",
@@ -28,6 +47,7 @@
     "mocha": "^3.5.0",
     "mocha-casperjs": "^0.6.0",
     "npm-install-webpack-plugin": "^4.0.5",
+    "nyc": "^11.1.0",
     "phantomjs": "^2.1.7",
     "ts-node": "^3.3.0",
     "tslint": "^5.6.0",
