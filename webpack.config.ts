@@ -1,6 +1,7 @@
 import * as path from 'path';
 import * as webpack from 'webpack';
 
+const WebpackCleanupPlugin = require('webpack-cleanup-plugin');
 const NpmInstallPlugin = require('npm-install-webpack-plugin');
 
 declare var __dirname: any;
@@ -17,10 +18,11 @@ const config: webpack.Configuration = {
     }]
   },
   output: {
-    filename: 'App.bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
   plugins: [
+    new WebpackCleanupPlugin(),
     new NpmInstallPlugin({
       // Use --save or --save-dev
       dev: false,
