@@ -1,13 +1,22 @@
 {
-  "name": "webpack-test",
-  "version": "1.0.0",
-  "description": "Webpack tests",
-  "main": "index.js",
+  "name": "@synaphea/merkle-tree",
+  "version": "2.1.0",
+  "description": "Our merkle tree implementation",
+  "main": "dist/index.js",
+  "types": "dist/types/index.d.ts",
+  "keywords": [
+    "merkle",
+    "tree"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theofilis/merkle-tree.git"
+  },
   "scripts": {
-    "build": "./node_modules/.bin/webpack",
-    "test": "npm run test-library && npm run test-web",
-    "test-web": "./node_modules/.bin/mocha-casperjs $(find test/ui -name '*.js')",
-    "test-library": "./node_modules/.bin/nyc ./node_modules/.bin/mocha -r ts-node/register test/library/**/*.spec.ts"
+    "prepare": "npm run build",
+    "build": "npx tsc -p tsconfig.json",
+    "report-coverage": "npx nyc report --reporter=text-lcov > coverage.lcov && npx codecov --token=a31d5466-220d-48fe-8d2f-183a2d1a83cb",
+    "test": "npx nyc ./node_modules/.bin/mocha --reporter mocha-circleci-reporter --slow 0.0001 --timeout 10000 -b -r ts-node/register -P tsconfig.test.json test/**/*.spec.ts"
   },
   "nyc": {
     "include": [
@@ -29,31 +38,20 @@
     "instrument": true
   },
   "author": "George Theofilis",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "devDependencies": {
-    "@types/chai": "^4.0.4",
-    "@types/mocha": "^2.2.42",
-    "@types/node": "^8.0.24",
-    "@types/webpack": "^3.0.10",
-    "awesome-typescript-loader": "^3.2.3",
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
-    "babel-loader": "^7.1.2",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
-    "casper-chai": "^0.3.0",
-    "casperjs": "^1.1.4",
-    "chai": "^4.1.1",
-    "mocha": "^3.5.0",
-    "mocha-casperjs": "^0.6.0",
-    "npm-install-webpack-plugin": "^4.0.5",
-    "nyc": "^11.1.0",
-    "phantomjs": "^2.1.7",
-    "ts-node": "^3.3.0",
-    "tslint": "^5.6.0",
-    "tslint-config-standard": "^6.0.1",
-    "typescript": "^2.4.2",
-    "webpack": "^3.5.5",
-    "webpack-cleanup-plugin": "^0.5.1"
-  }
+    "@types/chai": "4.0.4",
+    "@types/mocha": "2.2.42",
+    "@types/node": "8.0.24",
+    "chai": "4.1.1",
+    "codecov": "3.0.0",
+    "mocha": "3.5.0",
+    "mocha-circleci-reporter": "0.0.2",
+    "nyc": "11.1.0",
+    "ts-node": "5.0.1",
+    "tslint": "5.9.1",
+    "tslint-config-standard": "7.0.0",
+    "typescript": "2.7.2"
+  },
+  "dependencies": {}
 }
